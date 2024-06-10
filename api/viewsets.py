@@ -1,6 +1,7 @@
 from rest_framework import viewsets
-from .models import Student, Semester, Program
-from .serializers import StudentSerializer, SemesterSerializer, ProgramSerializer
+from .models import Student, Semester, Program, Enrollment, Lecturer
+from .serializers import StudentSerializer, SemesterSerializer, ProgramSerializer, EnrollmentSerializer, \
+    LecturerSerializer
 
 
 class StudentViewSet(viewsets.ModelViewSet):
@@ -23,3 +24,14 @@ class ProgramViewSet(viewsets.ModelViewSet):
     """
     queryset = Program.objects.all()
     serializer_class = ProgramSerializer
+
+class LecturerViewSet(viewsets.ModelViewSet):
+    queryset = Lecturer.objects.all()
+    serializer_class = LecturerSerializer
+
+class EnrollmentViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Enrollment.objects.all()
+    serializer_class = EnrollmentSerializer
