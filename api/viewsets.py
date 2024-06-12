@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Student, Semester, Program, Enrollment, Lecturer
-from .serializers import StudentSerializer, SemesterSerializer, ProgramSerializer, EnrollmentSerializer, \
+from api.models import Student, Semester, Program, Enrollment, Lecturer
+from api.serializers import StudentSerializer, SemesterSerializer, ProgramSerializer, EnrollmentSerializer, \
     LecturerSerializer
 
 
