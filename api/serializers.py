@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from api.models import Student, Program, Semester
+from api.models import Student, Program, Semester, Enrollment, Lecturer
 
 
 class StudentSerializer(serializers.ModelSerializer):
@@ -17,3 +17,13 @@ class ProgramSerializer(serializers.ModelSerializer):
     class Meta:
         model = Program
         fields = ['id', 'name']
+
+class LecturerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Lecturer
+        fields = ['id', 'name']
+
+class EnrollmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Enrollment
+        fields = ['id', 'student', 'program', 'semester']
