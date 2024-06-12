@@ -79,10 +79,21 @@ WSGI_APPLICATION = 'SSIM.wsgi.app'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'verceldb',
+        'USER': 'default',
+        'PASSWORD': 'rHwKAQ6NG2Sx',
+        'HOST': 'ep-gentle-math-a7zwmepy.ap-southeast-2.aws.neon.tech',
+        'PORT': '5432',
     }
 }
 
