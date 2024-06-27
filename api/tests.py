@@ -16,7 +16,7 @@ class StudentViewSetTestCase(TestCase):
 
     def test_list_students(self):
         # Test GET request to list all students
-        response = self.client.get('/api/students/')  # Adjust URL as per your project's URL configuration
+        response = self.client.get('/api/student/')  # Adjust URL as per your project's URL configuration
         students = Student.objects.all()
         serializer = StudentSerializer(students, many=True)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -24,7 +24,7 @@ class StudentViewSetTestCase(TestCase):
 
     def test_retrieve_student(self):
         # Test GET request to retrieve a single student
-        url = f'/api/students/{self.student1.id}/'  # Adjust URL as per your project's URL configuration
+        url = f'/api/student/{self.student1.id}/'  # Adjust URL as per your project's URL configuration
         response = self.client.get(url)
         student = Student.objects.get(id=self.student1.id)
         serializer = StudentSerializer(student)
@@ -34,14 +34,14 @@ class StudentViewSetTestCase(TestCase):
     def test_create_student(self):
         # Test POST request to create a new student
         new_student_data = {'name': 'Eve', 'email': 'JkQoN@example.com', 'created_at': '2022-01-01', 'updated_at': '2022-01-01'}
-        response = self.client.post('/api/students/', new_student_data, format='json')
+        response = self.client.post('/api/student/', new_student_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Student.objects.count(), 3)  # Assuming you had 2 students created in setUp
 
     def test_update_student(self):
         # Test PUT request to update an existing student
         updated_data = {'name': 'Alice Updated', 'email': 'CQqoN@example.com', 'created_at': '2022-01-01', 'updated_at': '2022-01-01'}
-        url = f'/api/students/{self.student1.id}/'  # Adjust URL as per your project's URL configuration
+        url = f'/api/student/{self.student1.id}/'  # Adjust URL as per your project's URL configuration
         response = self.client.put(url, updated_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.student1.refresh_from_db()
@@ -49,7 +49,7 @@ class StudentViewSetTestCase(TestCase):
 
     def test_delete_student(self):
         # Test DELETE request to delete an existing student
-        url = f'/api/students/{self.student1.id}/'  # Adjust URL as per your project's URL configuration
+        url = f'/api/student/{self.student1.id}/'  # Adjust URL as per your project's URL configuration
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(Student.objects.count(), 1)
