@@ -33,7 +33,7 @@ class StudentViewSetTestCase(TestCase):
 
     def test_create_student(self):
         # Test POST request to create a new student
-        new_student_data = {'name': 'Eve', 'email': 'JkQoN@example.com', 'created_at': '2022-01-01', 'updated_at': '2022-01-01'}
+        new_student_data = {'username': 'vanvo001', 'password': '123123', 'name': 'Eve', 'email': 'JkQoN@example.com', 'created_at': '2022-01-01', 'updated_at': '2022-01-01'}
         response = self.client.post('/api/student/', new_student_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Student.objects.count(), 3)  # Assuming you had 2 students created in setUp

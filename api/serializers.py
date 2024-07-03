@@ -6,7 +6,7 @@ from api.models import Student, Program, Semester, Enrollment, Lecturer
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
-        fields = ['id', 'name']
+        fields = ['id', 'name', 'email', 'username', 'password']
 
 class SemesterSerializer(serializers.ModelSerializer):
     class Meta:
